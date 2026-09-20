@@ -75,6 +75,24 @@
     margin-top: 1rem;
 }
 
+/* Per-procedure colour is part of the procedure mutation, not a temporary
+ * preview setting. */
+.colour-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.colour-row input[type="color"] {
+    width: 3rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+}
+
 /* Confirmation buttons at the bottom of the modal */
 .button-row {
     margin-top: 1rem;

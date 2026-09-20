@@ -124,6 +124,25 @@ const CustomProcedures = props => (
                     </div>
                 </div>
             </div>
+            <div className={styles.colourRow}>
+                <label htmlFor="custom-procedure-colour">
+                    <FormattedMessage
+                        defaultMessage="Block colour"
+                        description="Label for the custom procedure colour picker"
+                        id="gui.customProcedures.blockColour"
+                    />
+                </label>
+                <input
+                    id="custom-procedure-colour"
+                    aria-label={props.intl.formatMessage({
+                        defaultMessage: 'Block colour',
+                        id: 'gui.customProcedures.blockColour'
+                    })}
+                    type="color"
+                    value={props.colour}
+                    onChange={props.onColourChange}
+                />
+            </div>
             <div className={styles.checkboxRow}>
                 <label>
                     <input
@@ -166,12 +185,14 @@ const CustomProcedures = props => (
 
 CustomProcedures.propTypes = {
     componentRef: PropTypes.func.isRequired,
+    colour: PropTypes.string.isRequired,
     intl: intlShape,
     onAddBoolean: PropTypes.func.isRequired,
     onAddLabel: PropTypes.func.isRequired,
     onAddNumber: PropTypes.func.isRequired,
     onAddText: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired,
+    onColourChange: PropTypes.func.isRequired,
     onOk: PropTypes.func.isRequired,
     onToggleWarp: PropTypes.func.isRequired,
     warp: PropTypes.bool.isRequired

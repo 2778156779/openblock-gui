@@ -15,13 +15,15 @@ class CustomProcedures extends React.Component {
             'handleAddNumber',
             'handleAddText',
             'handleToggleWarp',
+            'handleColourChange',
             'handleCancel',
             'handleOk',
             'setBlocks'
         ]);
         this.state = {
             rtlOffset: 0,
-            warp: false
+            warp: false,
+            colour: '#FF6680'
         };
     }
     componentWillUnmount () {
@@ -104,7 +106,10 @@ class CustomProcedures extends React.Component {
         this.mutationRoot.domToMutation(this.props.mutator);
         this.mutationRoot.initSvg();
         this.mutationRoot.render();
-        this.setState({warp: this.mutationRoot.getWarp()});
+        this.setState({
+            warp: this.mutationRoot.getWarp(),
+            colour: this.props.mutator.getAttribute('colour') || '#FF6680'
+        });
         // Allow the initial events to run to position this block, then focus.
         setTimeout(() => {
             this.mutationRoot.focusLastEditor_();
@@ -115,6 +120,9 @@ class CustomProcedures extends React.Component {
     }
     handleOk () {
         const newMutation = this.mutationRoot ? this.mutationRoot.mutationToDom(true) : null;
+        if (newMutation) {
+            newMutation.setAttribute('colour', this.state.colour);
+        }
         this.props.onRequestClose(newMutation);
     }
     handleAddLabel () {
@@ -144,11 +152,19 @@ class CustomProcedures extends React.Component {
             this.setState({warp: newWarp});
         }
     }
+    handleColourChange (event) {
+        const colour = event.target.value;
+        if (this.mutationRoot) {
+            this.mutationRoot.setColour(colour);
+        }
+        this.setState({colour});
+    }
     render () {
         return (
             <CustomProceduresComponent
                 componentRef={this.setBlocks}
                 warp={this.state.warp}
+                colour={this.state.colour}
                 onAddBoolean={this.handleAddBoolean}
                 onAddLabel={this.handleAddLabel}
                 onAddNumber={this.handleAddNumber}
@@ -156,6 +172,7 @@ class CustomProcedures extends React.Component {
                 onCancel={this.handleCancel}
                 onOk={this.handleOk}
                 onToggleWarp={this.handleToggleWarp}
+                onColourChange={this.handleColourChange}
             />
         );
     }
