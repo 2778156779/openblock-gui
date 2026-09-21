@@ -881,7 +881,9 @@ Blocks.defaultOptions = {
         dragShadowOpacity: 0.6
     },
     comments: true,
-    collapse: false,
+    // Procedure definitions provide their own collapse/expand command.  This
+    // flag enables Blockly's collapsed rendering and serialization support.
+    collapse: true,
     sounds: false
 };
 
