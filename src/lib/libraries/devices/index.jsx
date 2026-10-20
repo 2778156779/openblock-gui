@@ -15,10 +15,6 @@ import arduinoNanoIconURL from './arduinoNano/arduinoNano.png';
 import arduinoNanoConnectionIconURLL from './arduinoNano/arduinoNano-illustration.svg';
 import arduinoNanoConnectionSmallIconURL from './arduinoNano/arduinoNano-small.svg';
 
-import arduinoLeonardoIconURL from './arduinoLeonardo/arduinoLeonardo.png';
-import arduinoLeonardoConnectionIconURLL from './arduinoLeonardo/arduinoLeonardo-illustration.svg';
-import arduinoLeonardoConnectionSmallIconURL from './arduinoLeonardo/arduinoLeonardo-small.svg';
-
 import arduinoMega2560IconURL from './arduinoMega2560/arduinoMega2560.png';
 import arduinoMega2560ConnectionIconURLL from './arduinoMega2560/arduinoMega2560-illustration.svg';
 import arduinoMega2560ConnectionSmallIconURL from './arduinoMega2560/arduinoMega2560-small.svg';
@@ -74,10 +70,6 @@ import raspberryPiPico2ConnectionSmallIconURL from './raspberryPiPico2/raspberry
 import raspberryPiPico2WIconURL from './raspberryPiPico2W/raspberryPiPico2W.png';
 import raspberryPiPico2WConnectionIconURL from './raspberryPiPico2W/raspberryPiPico2W-illustration.svg';
 import raspberryPiPico2WConnectionSmallIconURL from './raspberryPiPico2W/raspberryPiPico2W-small.svg';
-
-import makeymakeyIconURL from './makeymakey/makeymakey.png';
-import makeymakeyConnectionIconURL from './makeymakey/makeymakey-illustration.svg';
-import makeymakeyConnectionSmallIconURL from './makeymakey/makeymakey-small.svg';
 
 const deviceData = [
     /**
@@ -176,42 +168,6 @@ const deviceData = [
         programLanguage: ['block', 'c', 'cpp'],
         tags: ['arduino'],
         helpLink: 'https://wiki.openblock.cc/general-hardware-guidelines/boards/arduino-nano'
-    },
-    {
-        name: 'Arduino Leonardo',
-        deviceId: 'arduinoLeonardo',
-        manufactor: 'arduino.cc',
-        learnMore: 'https://docs.arduino.cc/hardware/leonardo',
-        type: DeviceType.arduino,
-        iconURL: arduinoLeonardoIconURL,
-        description: (
-            <FormattedMessage
-                defaultMessage="The classic Arduino board that can act as a mouse or keyboard."
-                description="Description for the Arduino Leonardo device"
-                id="gui.device.arduinoLeonardo.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        bluetoothRequired: false,
-        serialportRequired: true,
-        defaultBaudRate: '9600',
-        internetConnectionRequired: false,
-        launchPeripheralConnectionFlow: true,
-        useAutoScan: false,
-        connectionIconURL: arduinoLeonardoConnectionIconURLL,
-        connectionSmallIconURL: arduinoLeonardoConnectionSmallIconURL,
-        connectingMessage: (
-            <FormattedMessage
-                defaultMessage="Connecting"
-                description="Message to help people connect to their device."
-                id="gui.device.connectingMessage"
-            />
-        ),
-        programMode: ['upload'], // due to the software serilport realtim mode is unstable
-        programLanguage: ['block', 'c', 'cpp'],
-        tags: ['arduino'],
-        helpLink: 'https://wiki.openblock.cc/general-hardware-guidelines/boards/arduino-leonardo'
     },
     {
         name: 'Arduino Mega 2560',
@@ -717,42 +673,6 @@ const deviceData = [
         programLanguage: ['block', 'microPython'],
         tags: ['microPython'],
         helpLink: 'https://wiki.openblock.cc/general-hardware-guidelines/boards/microbit-v2'
-    },
-    {
-        name: 'Makey Makey',
-        deviceId: 'makeyMakey',
-        manufactor: 'makeymakey.com',
-        learnMore: 'https://makeymakey.com/pages/how-to',
-        type: DeviceType.arduino,
-        iconURL: makeymakeyIconURL,
-        description: (
-            <FormattedMessage
-                defaultMessage="Make anything into a key."
-                description="Description for the Makey Makey device"
-                id="gui.device.makeymakey.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        bluetoothRequired: false,
-        serialportRequired: true,
-        defaultBaudRate: '115200',
-        internetConnectionRequired: false,
-        launchPeripheralConnectionFlow: true,
-        useAutoScan: false,
-        connectionIconURL: makeymakeyConnectionIconURL,
-        connectionSmallIconURL: makeymakeyConnectionSmallIconURL,
-        connectingMessage: (
-            <FormattedMessage
-                defaultMessage="Connecting"
-                description="Message to help people connect to their device."
-                id="gui.device.connectingMessage"
-            />
-        ),
-        programMode: ['upload'],
-        programLanguage: ['block', 'c', 'cpp'],
-        tags: ['arduino'],
-        helpLink: 'https://wiki.openblock.cc/general-hardware-guidelines/boards/makeymakey'
     },
     /**
      * For those parent devices that exist in VM but are not displayed in GUI
